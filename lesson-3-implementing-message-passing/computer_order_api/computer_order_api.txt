@@ -1,0 +1,53 @@
+We want to implement the following functionality:
+
+    Place an order for a computer
+    Get all computer orders
+
+When a user orders a computer, we want to allow users to specify equipment such as a keyboard or a webcam to include with the order.
+
+An order should contain information on the user who created the order, the status of the order, the time the order was placed, and additional equipment.
+
+
+
+REST API Interface
+
+Create an order
+	POST /api/order
+
+Request Headers
+	Content-Type: application/json
+
+Request Body
+{    	
+    "computer_id": <computer_id: string>,
+    “user_id“: <string>	 
+    "keyboard": <boolean>,
+    "webcam": <boolean>
+}
+
+Response Body
+{    	
+    "computer_id": <computer_id: string>,
+    “user_id“: <string>	 
+    "keyboard": <boolean>,
+    "webcam": <boolean>,
+    “order_status“: <string>
+    “order_time“: <string>
+}
+
+
+Retrieve orders by user_id
+
+	GET /api/order?user_id=<user_id>
+
+Response Body
+{
+ {    	
+    "computer_id": <computer_id: string>,
+    “user_id“: <string>	 
+    "keyboard": <boolean>,
+    "webcam": <boolean>,
+    “order_status“: <string>
+    “order_time“: <string>
+ }, ...
+}
