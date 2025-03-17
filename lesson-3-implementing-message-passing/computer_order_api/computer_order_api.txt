@@ -14,40 +14,50 @@ REST API Interface
 Create an order
 	POST /api/order
 
-Request Headers
-	Content-Type: application/json
+	Request Headers
+		Content-Type: application/json
 
-Request Body
-{    	
-    "computer_id": <computer_id: string>,
-    “user_id“: <string>	 
-    "keyboard": <boolean>,
-    "webcam": <boolean>
-}
+	Request Body
+	{    	
+		"computer_id": <computer_id: string>,
+		“user_id“: <string>	 
+		"keyboard": <boolean>,
+		"webcam": <boolean>
+	}
 
-Response Body
-{    	
-    "computer_id": <computer_id: string>,
-    “user_id“: <string>	 
-    "keyboard": <boolean>,
-    "webcam": <boolean>,
-    “order_status“: <string>
-    “order_time“: <string>
-}
+	Response Headers
+		Content-Type: application/json
+		Response Code201 Created
+	
+	Response Body
+	{    	
+		"computer_id": <computer_id: string>,
+		“user_id“: <string>	 
+		"keyboard": <boolean>,
+		"webcam": <boolean>,
+		“order_status“: <string>
+		“order_time“: <string>
+	}
 
 
 Retrieve orders by user_id
 
 	GET /api/order?user_id=<user_id>
-
-Response Body
-{
- {    	
-    "computer_id": <string>,
-    “user_id“: <user_id:string>	 
-    "keyboard": <boolean>,
-    "webcam": <boolean>,
-    “order_status“: <string>
-    “order_time“: <string>
- }, ...
-}
+    
+	Response Headers
+		Content-Type: application/json
+		Response Code 200 OK
+	
+	Response Body
+	{
+		"computer_orders:[
+			 {    	
+				"computer_id": <string>,
+				“user_id“: <user_id:string>	 
+				"keyboard": <boolean>,
+				"webcam": <boolean>,
+				“order_status“: <string>
+				“order_time“: <isoformat_timestamp:string>
+			 }
+		]
+	}
