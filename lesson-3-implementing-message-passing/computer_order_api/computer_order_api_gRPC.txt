@@ -1,0 +1,42 @@
+Task List
+
+Plan for the gRPC service by creating the protobuf message and computer ordering service.
+
+To customize the computer orders, we want to allow users to specify the equipment that they want on the computer. An order should also include the user who created the order, the status of the order, and the time an order was placed.
+
+Using the proto3 syntax, create the message and services for our computer ordering application. You may find it useful to use your previous JSON solution as a starting point and reference the protobuf documentation(opens in a new tab).
+
+gRPC API Interface
+
+Create an order
+	syntax = "proto3";
+	
+	enum status_enum {
+	  ORDER_CREATED = 0;
+	  CORPUS_FINISHED = 1;
+	}
+	
+	message CreateOrder
+	{    	
+		string order_id = 1;	 		
+		string created_by = 2;
+		status_enum status = 3;
+		string created_at = 4;
+		string equipment = 5;
+	}
+	
+	message Order
+	{    	
+		string order_id = 1;	 		
+		string created_by = 2;
+		status_enum status = 3;
+		string created_at = 4;
+		string equipment = 5;
+	}
+
+Service OrderService {
+    rpc Create(CreateOrder) returns (Order)
+}
+
+
+
