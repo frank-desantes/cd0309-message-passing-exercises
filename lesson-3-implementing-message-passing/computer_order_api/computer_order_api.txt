@@ -43,8 +43,8 @@ Retrieve orders by user_id
 Response Body
 {
  {    	
-    "computer_id": <computer_id: string>,
-    “user_id“: <string>	 
+    "computer_id": <string>,
+    “user_id“: <user_id:string>	 
     "keyboard": <boolean>,
     "webcam": <boolean>,
     “order_status“: <string>
