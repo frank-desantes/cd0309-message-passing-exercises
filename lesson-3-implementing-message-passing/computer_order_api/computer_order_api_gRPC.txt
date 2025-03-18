@@ -12,8 +12,10 @@ Create an order
 	syntax = "proto3";
 	
 	enum status_enum {
-	  ORDER_CREATED = 0;
-	  CORPUS_FINISHED = 1;
+	  ORDER_UNSPECIFIED = 0;
+	  ORDER_CREATED = 1;
+	  CORPUS_FINISHED = 2;
+	  CORPUS_FAILED = 3;
 	}
 	
 	message CreateOrder
@@ -22,7 +24,7 @@ Create an order
 		string created_by = 2;
 		status_enum status = 3;
 		string created_at = 4;
-		string equipment = 5;
+		repeated string equipment = 5;
 	}
 	
 	message Order
@@ -31,7 +33,7 @@ Create an order
 		string created_by = 2;
 		status_enum status = 3;
 		string created_at = 4;
-		string equipment = 5;
+		repeated string equipment = 5;
 	}
 
 Service OrderService {
