@@ -1,6 +1,6 @@
 import requests
 
-API_URL = "http://localhost:7111"
+API_URL = "http://localhost:5000"
 
 # should return the default route"s output
 result = requests.get(API_URL)

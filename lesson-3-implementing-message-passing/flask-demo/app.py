@@ -9,6 +9,11 @@ app = Flask(__name__)
 def hello_world():
     return jsonify({'message': 'Hello World!'})
 
+@app.route('/health', methods=['GET'])
+def health():
+    result = {'result': 'Hello, World!'}
+    return jsonify(result)    
+    
 @app.route('/demo/<path_demo>', methods=['POST'])
 def demo(path_demo=None):
     # Showcase different ways in which data can be passed
