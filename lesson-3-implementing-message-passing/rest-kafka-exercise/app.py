@@ -1,5 +1,5 @@
 import json
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response
 from kafka import KafkaProducer
 
 from .services import retrieve_orders, create_order
@@ -22,10 +22,11 @@ def computers():
         return jsonify(retrieve_orders())
     elif request.method == 'POST':
         request_body = request.json
-        print(request_body)
+        #print(request_body)
         producer.send(TOPIC_NAME, bytes(str(request_body), 'utf-8'))
         producer.flush()
-        return jsonify(create_order(request_body))
+        #return jsonify(create_order(request_body))
+        return Response(status=202)
     else:
         raise Exception('Unsupported HTTP request type.')
 
